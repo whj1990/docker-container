@@ -1,0 +1,73 @@
+[
+  {
+    "httpRequest": {
+      "path": "/panel"
+    },
+    "httpResponse": {
+      "body": {
+        "value": "368.3万",
+        "dayRingRatio": "+0.05%"
+      }
+    }
+  },
+  {
+    "httpRequest": {
+      "path": "/panel2"
+    },
+    "httpResponse": {
+      "body": {
+        "title": "重合累积注册用户数",
+        "value": "2.668万",
+        "dayRingRatio": "+0.08%",
+        "description": "同时在百视tv和优视猫注册的用户数"
+      }
+    }
+  },
+  {
+    "httpRequest": {
+      "path": "/aaaaa11111"
+    },
+    "httpResponse": {
+      "body": {
+        "fields": ["省", "用户数"],
+        "list": [
+          ["上海", "5412"],
+          ["广东", "2966"],
+          ["山东", "2550"],
+          ["江苏", "2349"],
+          ["河南", "2208"],
+          ["浙江", "1718"],
+          ["河北", "1656"],
+          ["辽宁", "1441"],
+          ["四川", "1338"],
+          ["安徽", "1260"]
+        ]
+      }
+    }
+  },
+  {
+    "httpRequest": {
+      "path": "/echarts1"
+    },
+    "httpResponse": {
+      "body": {
+        "title": {
+          "text": "ECharts测试"
+        },
+        "tooltip": {},
+        "legend": {
+          "data": ["销量"]
+        },
+        "xAxis": {
+          "data": ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+        },
+        "yAxis": {},
+        "series": [{
+          "name": "销量",
+          "type": "bar",
+          "data": [5, 20, 36, 10, 10, 20]
+        }]
+      }
+    }
+  }
+]
