@@ -129,7 +129,6 @@ vendor/
 mongo_data/
 mysql_data/
 kafka_data/
-elasticsearch_data/
 zookeeper_data/
 influxdb/
 output/

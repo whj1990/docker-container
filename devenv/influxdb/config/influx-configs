@@ -1,0 +1,20 @@
+[default]
+  url = "http://localhost:8086"
+  token = "UMRwtvrlX_kS6HaT7RP6UVeGAlXQXQku46Uyr6JBi81ivw1Cc_9cL6E5Y41Iweun6m7AlTbZORmGqvYo3AnOrA=="
+  org = "tstcms"
+  active = true
+# 
+# [eu-central]
+#   url = "https://eu-central-1-1.aws.cloud2.influxdata.com"
+#   token = "XXX"
+#   org = ""
+# 
+# [us-central]
+#   url = "https://us-central1-1.gcp.cloud2.influxdata.com"
+#   token = "XXX"
+#   org = ""
+# 
+# [us-west]
+#   url = "https://us-west-2-1.aws.cloud2.influxdata.com"
+#   token = "XXX"
+#   org = ""
