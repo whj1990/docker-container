@@ -130,7 +130,7 @@ mongo_data/
 mysql_data/
 kafka_data/
 zookeeper_data/
-influxdb/
+influxdb_data/
 output/
 
 go.sum

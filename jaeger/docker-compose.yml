@@ -1,0 +1,55 @@
+version: '3'
+services:
+  jaeger-collector:
+    image: jaegertracing/jaeger-collector
+    container_name: jaeger-collector
+    environment:
+      - SPAN_STORAGE_TYPE=elasticsearch
+      - ES_SERVER_URLS=http://es-cn-zpr37zgpd0007qkti.public.elasticsearch.aliyuncs.com:9200
+      - ES_USERNAME=elastic
+      - ES_PASSWORD=CEX2023==
+      - LOG_LEVEL=debug
+    ports:
+      - "14369:14269"
+      - "14250:14250"
+      - "14268:14268"
+      - "9411:9411"
+  jaeger-agent:
+    image: jaegertracing/jaeger-agent
+    container_name: jaeger-agent
+    environment:
+      - REPORTER_GRPC_HOST_PORT=192.168.71.26:14250
+      - LOG_LEVEL=debug
+    ports:
+      - "5775:5775/udp"
+      - "5778:5778/tcp"
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+    depends_on:
+      - jaeger-collector
+  jaeger-query:
+    image: jaegertracing/jaeger-query
+    container_name: jaeger-query
+    environment:
+      - SPAN_STORAGE_TYPE=elasticsearch
+      - ES_SERVER_URLS=http://es-cn-zpr37zgpd0007qkti.public.elasticsearch.aliyuncs.com:9200
+      - ES_USERNAME=elastic
+      - ES_PASSWORD=CEX2023==
+      - LOG_LEVEL=debug
+    ports:
+      - "16686:16686"
+      - "16687:16687"
+  jaeger-in-one: #存储依赖内存
+    image: jaegertracing/all-in-one:1.25
+    ports:
+      - "5775:5775/udp"
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5778:5778"
+      - "16686:16686"
+      - "14268:14268"
+      - "14250:14250"
+      - "9411:9411"
+    environment:
+      COLLECTOR_ZIPKIN_HOST_PORT: ":9411"
+    privileged: true
