@@ -131,6 +131,7 @@ mysql_data/
 kafka_data/
 zookeeper_data/
 influxdb_data/
+nacos_data/
 output/
-
+init.d/
 go.sum

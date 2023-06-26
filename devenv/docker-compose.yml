@@ -84,8 +84,7 @@ services:
       - mysql
     environment:
       #JAVA_OPTS: '-Xms100m -Xmx1000m -Xmn100m -Xss256k -XX:MetaspaceSize=10m -XX:MaxMetaspaceSize=250m'
-      #APOLLO_CONNECT_IP: '192.168.71.45'
-      APOLLO_CONNECT_IP: '192.168.71.61'
+      APOLLO_CONNECT_IP: '192.168.31.22'
       APOLLO_CONFIG_DB_USERNAME: 'root'
       APOLLO_CONFIG_DB_PASSWORD: '123456'
       APOLLO_PORTAL_DB_USERNAME: 'root'
