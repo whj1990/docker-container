@@ -1,0 +1,27 @@
+version: '3.2'                                                                                                                                                                                                                                
+services:
+  ex_passport:
+    image: "golang:1.18.2"
+    hostname: "ex_passport"
+    restart: "on-failure:3"
+    working_dir: "/go"
+    volumes:
+      - "/data/code/7ex.art/passport:/go"
+    command: "./ex_passport"
+    extra_hosts:
+      - "secret-pay.7ex.art:172.88.88.11"
+      - "secret-passport.7ex.art:172.88.88.12"
+      - "secret-mall.7ex.art:172.88.88.13"
+      - "secret-pay.cex.art:172.88.88.11"
+      - "secret-passport.cex.art:172.88.88.12"
+      - "secret-mall.cex.art:172.88.88.13"
+      - "openapi-internal.cex.art:172.88.88.112"
+    networks:
+      7ex-network:
+        ipv4_address: "172.88.88.101"
+    container_name: "ex_passport"
+
+networks:
+  7ex-network:
+    external:
+      name: "7ex_network" 

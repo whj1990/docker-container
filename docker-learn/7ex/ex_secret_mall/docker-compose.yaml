@@ -1,0 +1,30 @@
+version: '3.2'
+services:
+  ex_secret_mall:
+    image: "golang:1.18.2"
+    hostname: "ex_secret_mall"
+    restart: "on-failure:3"
+    working_dir: "/go"
+    volumes:
+      - "/data/code/7ex.art/secret_mall:/go"
+    command: "./ex_secret_mall"
+    extra_hosts:
+      - "secret-pay.7ex.art:172.88.88.11"
+      - "secret-passport.7ex.art:172.88.88.12"
+      - "secret-mall.7ex.art:172.88.88.13"
+      - "secret-copyright.7ex.art:172.88.88.14"
+      - "dev-openapi-internal.360ex.art:172.88.88.112"
+      - "secret-pay.cex.art:172.88.88.11"
+      - "secret-passport.cex.art:172.88.88.12"
+      - "secret-mall.cex.art:172.88.88.13"
+      - "secret-copyright.cex.art:172.88.88.14"
+      - "openapi-internal.cex.art:172.88.88.112"
+    networks:
+      7ex-network:
+        ipv4_address: "172.88.88.13"
+    container_name: "ex_secret_mall"
+
+networks:
+  7ex-network:
+    external:
+      name: "7ex_network" 

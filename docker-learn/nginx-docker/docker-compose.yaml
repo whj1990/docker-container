@@ -1,0 +1,25 @@
+version: '3.2'                                                                                                                                                                                                                                
+services:
+  nginx:
+    image: "nginx:1.21.6"
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "443:443"
+    hostname: "nginx"
+    restart: "on-failure:3"
+    volumes:
+      - "/data/config/nginx/conf.d:/etc/nginx/conf.d"
+#      - "/data/config/nginx/rotatelog.sh:/etc/nginx/rotatelog.sh"
+      - "/data/config/nginx/cert:/etc/nginx/cert"
+      - "/data/logs/nginx:/var/log/nginx"
+      - "/data/code:/data"
+    networks:
+      7ex-network:
+        ipv4_address: "172.88.88.88"
+    container_name: "nginx"
+
+networks:
+  7ex-network:
+    external:
+      name: "7ex_network"

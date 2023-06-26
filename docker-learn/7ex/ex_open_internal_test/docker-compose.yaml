@@ -1,0 +1,26 @@
+version: '3.2'
+services:
+  # ex_open_internal_test 服务
+  ex_open_internal_test:
+    image: "127.0.0.1:5000/omg/open_internal:latest"
+    hostname: "ex_open_internal_test"
+    restart: "on-failure:3"
+    working_dir: "/go/workspace"
+    command: "./7ex_open_internal"
+    extra_hosts:
+      - "secret-pay.7ex.art:172.88.88.11"
+      - "secret-passport.7ex.art:172.88.88.12"
+      - "secret-mall.7ex.art:172.88.88.13"
+      - "secret-pay.cex.art:172.88.88.11"
+      - "secret-passport.cex.art:172.88.88.12"
+      - "secret-mall.cex.art:172.88.88.13"
+      - "secret-copyright.cex.art:172.88.88.14"
+    networks:
+      7ex-network:
+        ipv4_address: "172.88.88.200"
+    container_name: "ex_open_internal_test"
+
+networks:
+  7ex-network:
+    external:
+      name: "7ex_network"

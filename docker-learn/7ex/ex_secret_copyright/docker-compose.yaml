@@ -1,0 +1,28 @@
+version: '3.2'
+services:
+  ex_secret_copyright:
+    image: "golang:1.18.2"
+    hostname: "ex_secret_copyright"
+    restart: "on-failure:3"
+    ports:
+      - "50151:50051"
+    working_dir: "/go"
+    volumes:
+      - "/data/code/7ex.art/secret_copyright:/go"
+    command: "./ex_secret_copyright"
+    extra_hosts:
+      - "secret-pay.7ex.art:172.88.88.11"
+      - "secret-passport.7ex.art:172.88.88.12"
+      - "secret-mall.7ex.art:172.88.88.13"
+      - "secret-pay.cex.art:172.88.88.11"
+      - "secret-mall.cex.art:172.88.88.13"
+      - "secret-passport.360ex.art:172.88.88.12"
+    networks:
+      7ex-network:
+        ipv4_address: "172.88.88.14"
+    container_name: "ex_secret_copyright"
+
+networks:
+  7ex-network:
+    external:
+      name: "7ex_network" 
